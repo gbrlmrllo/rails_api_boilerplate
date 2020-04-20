@@ -1,3 +1,5 @@
+![CI](https://github.com/gbrlmrllo/rails_api_boilerplate/workflows/CI/badge.svg)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
