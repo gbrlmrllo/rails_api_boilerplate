@@ -4,10 +4,12 @@ require "rails_helper"
 
 RSpec.describe V1::UsersController, type: :controller do
   describe "GET #show" do
-    context "with an existing user" do
-      let(:user) { create(:user) }
+    let(:user) { create(:user) }
 
-      before { get :show, params: { id: user&.id } }
+    before { sign_in user }
+
+    context "with an existing user" do
+      before { get :show, params: { id: user.id } }
 
       it "returns http success" do
         expect(response).to have_http_status(:success)
