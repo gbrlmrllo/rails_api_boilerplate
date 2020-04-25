@@ -46,3 +46,15 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+      - name: Deploy to Staging
+        env:
+          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+          HEROKU_APP_NAME: "chatops-events-staging"
+        if: github.ref == 'refs/heads/staging' && job.status == 'success'
+        run: git push -f https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/staging:master
+      - name: Deploy to Production
+        env:
+          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+          HEROKU_APP_NAME: "chatops-events-production"
+        if: github.ref == 'refs/heads/master' && job.status == 'success'
+        run: git push https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/master:master
