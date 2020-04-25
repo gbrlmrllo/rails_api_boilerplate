@@ -53,5 +53,5 @@ end
 
 def decode_token(response)
   token = response.headers["Authorization"].split(" ").last
-  JWT.decode(token, Rails.application.credentials.jwt_secret, true)
+  JWT.decode(token, ENV["JWT_SECRET_KEY"], true)
 end
