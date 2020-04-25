@@ -10,12 +10,16 @@ rails_api_boilerplate is the base Rails api application used for me.
 
 ## Installation
 
-```bundle install```
-
 Setup JWT secret for [devise](https://github.com/gbrlmrllo/rails_api_boilerplate/blob/master/config/initializers/devise.rb#L302).
 
 ```
-export JWT_SECRET_KEY="you can use rails secret for generate a secret token"
+export JWT_SECRET_KEY="you can use "rails secret" for generate a secret token"
+```
+
+Run application setup
+
+```
+./bin/setup
 ```
 
 ## Gemfile
@@ -55,23 +59,9 @@ And testing gems like:
 * [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers) for common
   RSpec matchers
 
-## Other goodies
-
-Suspenders also comes with:
-
-* The [`./bin/setup`][setup] convention for new developer setup
-* The `./bin/deploy` convention for deploying to Heroku
-* An automatically-created `SECRET_KEY_BASE` environment variable in all
-  environments
-* Configuration for [Github Actions CI][CI] Continuous Integration (tests)
-
 ## Github CI
 
-TODO
-
-## Heroku
-
-TODO
+You must add a `JWT_SECRET_KEY` in the [github secrets](https://help.github.com/es/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)
 
 ## Spring
 
