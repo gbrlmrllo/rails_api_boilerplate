@@ -53,4 +53,4 @@ jobs:
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
